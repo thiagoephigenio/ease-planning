@@ -21,7 +21,6 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
   const [deadline, setDeadline] = useState('');
   const [priority, setPriority] = useState('');
   const [selectedPriority, setSelectedPriority] = useState('');
-  const [author, setAuthor] = useState(0);
   const [sponsor, setSponsor] = useState({} as User);
   const [selectedSponsor, setSelectedSponsor] = useState('');
   const [inputType, setInputType] = useState('text')
@@ -29,12 +28,10 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    console.log(localStorage.getItem('id'))
     httpClient.get('user')
       .then(response => {
         setUsers(response.data)
       })
-    setAuthor(+localStorage.getItem('id'))
   }, []);
 
   function handleChangePriority(event) {
@@ -51,8 +48,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
 
   async function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-    setAuthor(+localStorage.getItem('id'));
-    console.log(localStorage.getItem('id'))
+    const author = +localStorage.getItem('id')
     await createTask({
       description,
       deadline,
@@ -67,7 +63,6 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
     setSelectedSponsor('');
     setSelectedPriority('');
     setSponsor({} as User);
-
     onRequestClose();
   }
 

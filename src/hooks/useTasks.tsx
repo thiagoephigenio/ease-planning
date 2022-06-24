@@ -41,7 +41,6 @@ export function TasksProvider({ children }: TasksProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   async function createTask(taskInput: TaskInput) {
-    console.log(taskInput.author);
     const newTask = {
       description: taskInput.description,
       priority: taskInput.priority,
@@ -54,7 +53,6 @@ export function TasksProvider({ children }: TasksProviderProps) {
         if (response.status === 201) {
           const { id } = response.data;
           const storegedTask = { ...taskInput, id }
-
           setTasks([
             ...tasks,
             storegedTask

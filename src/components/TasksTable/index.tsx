@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { MdDelete } from 'react-icons/md';
 import { useTasks } from '../../hooks/useTasks';
 import styles from './styles.module.scss';
@@ -41,11 +42,11 @@ export function TasksTable() {
                     {
                       task.author === +localStorage.getItem('id')
                         ? (
-                            <button onClick={
-                              () => { handleRemoveTask(task.id) }
-                            }>
-                              <MdDelete size={25} />
-                            </button>)
+                          <button onClick={
+                            () => { handleRemoveTask(task.id) }
+                          }>
+                            <MdDelete size={25} />
+                          </button>)
                         : ''
                     }
                   </td>
