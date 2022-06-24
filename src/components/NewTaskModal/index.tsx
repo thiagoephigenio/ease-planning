@@ -29,12 +29,12 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
+    console.log(localStorage.getItem('id'))
     httpClient.get('user')
       .then(response => {
         setUsers(response.data)
       })
     setAuthor(+localStorage.getItem('id'))
-
   }, []);
 
   function handleChangePriority(event) {
@@ -51,6 +51,8 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
 
   async function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
+    setAuthor(+localStorage.getItem('id'));
+    console.log(localStorage.getItem('id'))
     await createTask({
       description,
       deadline,

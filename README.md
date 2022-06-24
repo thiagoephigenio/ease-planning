@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este Projeto foi criado utilizando [Next.js](https://nextjs.org/)
 
-## Getting Started
+## Começando
 
-First, run the development server:
+Primeiramente instale as dependências e execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -10,25 +10,17 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra o [http://localhost:3000](http://localhost:3000) em seu navegador.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Você irá precisar do banco de dados Postgres devidamente instalado e configurado.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Edite o arquivo .env.local de acordo com a instância do seu banco de dados:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+PGSQL_HOST= 172.18.0.3
+PGSQL_PORT= 5432
+PGSQL_DATABASE= posts
+PGSQL_USER= postgres
+PGSQL_PASSWORD= a123456*
+```
+Utilize o script.sql localizado na raiz do projeto para criação das tabelas do banco de dados.

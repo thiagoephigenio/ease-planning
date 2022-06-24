@@ -41,6 +41,7 @@ export function TasksProvider({ children }: TasksProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   async function createTask(taskInput: TaskInput) {
+    console.log(taskInput.author);
     const newTask = {
       description: taskInput.description,
       priority: taskInput.priority,
