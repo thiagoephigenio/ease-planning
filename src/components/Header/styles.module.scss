@@ -1,0 +1,52 @@
+.headerContainer {
+  background: var(--blue);
+}
+.headerContent {
+
+  max-width: 1120px;
+  margin: 0 auto;
+
+  header {
+    padding: 2rem 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  span {
+    display: flex;
+
+    h2 {
+      padding-left: 0.8rem;
+      color: #ffffff;
+    }
+  }
+
+  button {
+    font-size: 1rem;
+    color: #FFF;
+    background: var(--blue-light);
+    border: 0;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    height: 3rem;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+  span {
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2s;
+    align-items: center;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    .logoutIcon {
+      margin-left: 0.5rem;
+    }
+  }
+}
